@@ -8,4 +8,8 @@ function Magnet(magnet, x, y)
   this.positionX = x;
   this.positionY = y;
 
+  Magnet.allMagnets.push(this);
 }
+
+Magnet.allMagnets = [];
+
