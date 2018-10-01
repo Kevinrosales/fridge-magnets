@@ -3,7 +3,7 @@ Mag.Net
 
 ## Getting Started
 
-1. Clone the github repo at https://github.com/CClemensJr/about-me
+1. Clone the github repo at https://github.com/Kevinrosales/fridge-magnets
 2. Open the index.html file in your browser of choice.
 
 ### Prerequisites
