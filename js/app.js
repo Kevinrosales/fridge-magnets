@@ -26,4 +26,11 @@ function checkLocalStorage()
   }
 }
 
+function rando(min, max)
+{
+  var randomNumber = Math.floor(Math.random()*(max-min+1))+min;
+ 
+  return randomNumber;
+}
+
 checkLocalStorage();
