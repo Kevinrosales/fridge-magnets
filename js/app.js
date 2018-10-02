@@ -1,6 +1,7 @@
 'use strict';
 
 var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
+var freezerArea = document.getElementById('freezer');
 
 function Magnet(magnet, x, y) {
   this.magnetName = magnet;
@@ -15,6 +16,7 @@ Magnet.allMagnets = [];
 
 function initialize() {
   checkLocalStorage();
+  // addElement('p', 'a', freezerArea);
 }
 
 function checkLocalStorage() {
@@ -42,9 +44,30 @@ function createMagnets() {
     // Assign the alphabetMagnets[i] to the magnetName property
     // Use rando to assign values to positionX and positionY
     new Magnet(alphabetMagnets[i], rando(50, 450), rando(10, 450));
+
+    addElement('p',alphabetMagnets[i],freezerArea);
+    // console.log(alphabetMagnets[i].magnetName);
   }
 
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
+}
+
+function addElement(element, content, parent){
+  console.log('in add element function');
+  var newElement = document.createElement(element);
+  var newContent = document.createTextNode(content);
+  var newId = document.createAttribute('id');
+  var newDrag = document.createAttribute('draggable');
+
+  newId.value = content;
+  newDrag.value = true;
+
+  newElement.setAttributeNode(newId);
+  newElement.setAttributeNode(newDrag);
+  newElement.appendChild(newContent);
+  parent.appendChild(newElement);
+
+  return newElement;
 }
 
 function rando(min, max) {
