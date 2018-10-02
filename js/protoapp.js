@@ -58,6 +58,14 @@ function rando(min, max) {
 initialize();
 
 var magnet = document.getElementById(Magnet.allMagnets[0].magnetName);
+
+var magnet2 = document.getElementById(Magnet.allMagnets[1].magnetName);
+
+var magnet3 = document.getElementById(Magnet.allMagnets[2].magnetName);
+
+
+
+
 var myFridge = document.getElementById('fridge');
 var myFreezer = document.getElementById('freezer');
 
@@ -76,13 +84,30 @@ function drop_handler(ev) {
   var data = ev.dataTransfer.getData("text/plain");
   ev.target.appendChild(document.getElementById(data));
   magnet.style.position = 'absolute';
+  magnet2.style.position = 'absolute';
+  magnet3.style.position = 'absolute';
+
+
   magnet.style.left = ev.pageX - magnet.offsetWidth / 2 + 'px';
+
+  magnet2.style.left = ev.pageX - magnet2.offsetWidth / 2 + 'px';
+
+  magnet3.style.left = ev.pageX - magnet3.offsetWidth / 2 + 'px';
+
+
+
   magnet.style.top = ev.pageY - magnet.offsetHeight / 2 + 'px';
+
+  magnet2.style.top = ev.pageY - magnet2.offsetHeight / 2 + 'px';
+
+  magnet3.style.top = ev.pageY - magnet3.offsetHeight / 2 + 'px';
 
 }
 
-// myOtherParagraph.addEventListener('dragstart', dragstart_handler);
-magnet.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
+magnet.addEventListener('dragstart', dragstart_handler);  
+magnet2.addEventListener('dragstart', dragstart_handler);  
+magnet3.addEventListener('dragstart', dragstart_handler);  
+
 
 myFridge.addEventListener('dragover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);

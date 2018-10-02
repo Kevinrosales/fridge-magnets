@@ -4,12 +4,10 @@ var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','
 var magnetArea = document.getElementById('magnets');
 
 
-function Magnet(magnet, x, y, id) {
+function Magnet(magnet, x, y) {
   this.magnetName = magnet;
   this.positionX = x;
   this.positionY = y;
-  this.id = id;
-  
 
   Magnet.allMagnets.push(this);
 }
@@ -48,12 +46,8 @@ function createMagnets() {
   
     var tag = addElement('p', alphabetMagnets[i], freezerArea);
 
-<<<<<<< HEAD
     addElement('p',alphabetMagnets[i],magnetArea);
     // console.log(alphabetMagnets[i].magnetName);
-=======
-    tag.setAttribute('style', `left: ${x}px; top: ${y}px;`);
->>>>>>> f06b0561d9f04b40d0576bac7d829da96561921c
   }
 
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
@@ -85,3 +79,37 @@ function rando(min, max) {
 }
 
 initialize();
+
+
+var magnet = document.getElementById(Magnet.allMagnets[0].magnetName);
+var myFridge = document.getElementById('fridge');
+var myFreezer = document.getElementById('freezer');
+
+function dragstart_handler(ev) {
+  ev.dataTransfer.setData("text/plain", ev.target.id);
+  ev.dropEffect = "move";
+}
+
+function dragover_handler(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = "move";
+}
+
+function drop_handler(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text/plain");
+  ev.target.appendChild(document.getElementById(data));
+  magnet.style.position = 'absolute';
+  magnet.style.left = ev.pageX - magnet.offsetWidth / 2 + 'px';
+  magnet.style.top = ev.pageY - magnet.offsetHeight / 2 + 'px';
+
+}
+
+// myOtherParagraph.addEventListener('dragstart', dragstart_handler);
+magnet.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
+
+myFridge.addEventListener('dragover', dragover_handler);
+myFridge.addEventListener('drop', drop_handler);
+
+myFreezer.addEventListener('dragover', dragover_handler);
+myFreezer.addEventListener('drop', drop_handler);
