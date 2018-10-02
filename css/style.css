@@ -5,7 +5,15 @@
     width: 100%;
     overflow: hidden;
 }
+
 p{
+    display: inline;
     color: red;
     font-size: 1em;
+}
+
+body {
+    background-image: url('/img/fridge.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
