@@ -49,6 +49,7 @@ function createMagnets() {
 }
 
 function addElement(element, content, parent){
+  console.log('in add element function');
   var newElement = document.createElement(element);
   var newContent = document.createTextNode(content);
   var newId = document.createAttribute('id');
@@ -59,6 +60,10 @@ function addElement(element, content, parent){
 
   newElement.setAttributeNode(newId);
   newElement.setAttributeNode(newDrag);
+  newElement.appendChild(newContent);
+  freezerArea.appendChild(newElement);
+
+  return newElement;
 }
 
 function rando(min, max) {
