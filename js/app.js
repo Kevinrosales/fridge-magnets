@@ -1,7 +1,7 @@
 'use strict';
 
 var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
-var freezerArea = document.getElementById('freezer');
+var magnetArea = document.getElementById('magnets');
 
 function Magnet(magnet, x, y) {
   this.magnetName = magnet;
@@ -45,7 +45,7 @@ function createMagnets() {
     // Use rando to assign values to positionX and positionY
     new Magnet(alphabetMagnets[i], rando(50, 450), rando(10, 450));
 
-    addElement('p',alphabetMagnets[i],freezerArea);
+    addElement('p',alphabetMagnets[i],magnetArea);
     // console.log(alphabetMagnets[i].magnetName);
   }
 
