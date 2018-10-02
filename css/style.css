@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 div {
   width: 300px;
   height: 300px;
@@ -10,4 +11,24 @@ section {
  border: 2px solid black;
 
 
+=======
+#fridge{
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    width: 100%;
+    overflow: hidden;
+}
+
+p{
+    display: inline;
+    color: red;
+    font-size: 1em;
+}
+
+body {
+    background-image: url('/img/fridge.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+>>>>>>> 059b7433a5ce0018faf608453653fa938ced63f7
 }
