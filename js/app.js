@@ -14,8 +14,11 @@ Magnet.allMagnets = [];
 
 function checkLocalStorage()
 {
+  console.log('In local storage');
   var localMagnets = localStorage.getItem('magnets');
+  console.log(`localMagnets = ${localMagnets}`);
   var magnets = JSON.parse(localMagnets);
+  console.log(`magnets = ${magnets}`);
 
   if (magnets && magnets.length) {
     console.log('Found it in storage');
