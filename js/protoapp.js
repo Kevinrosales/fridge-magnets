@@ -2,7 +2,7 @@
 'use strict';
 // var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
 
-var alphabetMagnets = ['A', 'B', 'C'];
+var alphabetMagnets = ["A", "B", "C"];
 
 Magnet.allMagnets = [];
 
@@ -57,11 +57,7 @@ function rando(min, max) {
 
 initialize();
 
-
-
-
-
-
+var magnet = document.getElementById(Magnet.allMagnets[0].magnetName);
 var myFridge = document.getElementById('fridge');
 var myFreezer = document.getElementById('freezer');
 
@@ -79,14 +75,14 @@ function drop_handler(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text/plain");
   ev.target.appendChild(document.getElementById(data));
-  myFreezer.style.position = 'absolute';
-  myFreezer.style.left = ev.pageX - myFreezer.offsetWidth / 2 + 'px';
-  myFreezer.style.top = ev.pageY - myFreezer.offsetHeight / 2 + 'px';
+  magnet.style.position = 'absolute';
+  magnet.style.left = ev.pageX - magnet.offsetWidth / 2 + 'px';
+  magnet.style.top = ev.pageY - magnet.offsetHeight / 2 + 'px';
 
 }
 
 // myOtherParagraph.addEventListener('dragstart', dragstart_handler);
-myFreezer.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
+magnet.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
 
 myFridge.addEventListener('dragover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);
