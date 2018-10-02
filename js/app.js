@@ -12,8 +12,12 @@ function Magnet(magnet, x, y) {
 
 Magnet.allMagnets = [];
 
-function checkLocalStorage()
-{
+
+function initialize() {
+  checkLocalStorage();
+}
+
+function checkLocalStorage() {
   console.log('In local storage');
   var localMagnets = localStorage.getItem('magnets');
   console.log(`localMagnets = ${localMagnets}`);
@@ -24,14 +28,15 @@ function checkLocalStorage()
     console.log('Found it in storage');
     Magnet.allMagnets = magnets;
   }
+  else {
+    createMagnets();
+  }
 }
 
-function createMagnets()
-{
+function createMagnets() {
   console.log('In createMagnets()');
   // Create a for loop set to the length of the alphabetMagnets array
-  for (var i = 0; i < alphabetMagnets.length; i++)
-  {
+  for (var i = 0; i < alphabetMagnets.length; i++) {
     console.log('In for loop');
     // During each iteration, create a new Magnet
     // Assign the alphabetMagnets[i] to the magnetName property
@@ -42,12 +47,10 @@ function createMagnets()
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
 }
 
-function rando(min, max)
-{
+function rando(min, max) {
   var randomNumber = Math.floor(Math.random()*(max-min+1))+min;
  
   return randomNumber;
 }
 
-checkLocalStorage();
-createMagnets();
+initialize();
