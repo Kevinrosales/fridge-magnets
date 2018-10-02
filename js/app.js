@@ -16,6 +16,7 @@ Magnet.allMagnets = [];
 
 function initialize() {
   checkLocalStorage();
+  // addElement('p', 'a', freezerArea);
 }
 
 function checkLocalStorage() {
@@ -61,7 +62,7 @@ function addElement(element, content, parent){
   newElement.setAttributeNode(newId);
   newElement.setAttributeNode(newDrag);
   newElement.appendChild(newContent);
-  freezerArea.appendChild(newElement);
+  parent.appendChild(newElement);
 
   return newElement;
 }
