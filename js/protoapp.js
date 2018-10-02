@@ -1,6 +1,8 @@
 
 'use strict';
-var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
+// var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
+
+var alphabetMagnets = ['A', 'B', 'C'];
 
 Magnet.allMagnets = [];
 
@@ -57,11 +59,8 @@ initialize();
 
 
 
-var a = document.getElementById('ATEST');
 
-// var b = document.getElementById('B');
-// var c = document.getElementById('C');
-console.log(a);
+
 
 var myFridge = document.getElementById('fridge');
 var myFreezer = document.getElementById('freezer');
@@ -80,14 +79,14 @@ function drop_handler(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text/plain");
   ev.target.appendChild(document.getElementById(data));
-  a.style.position = 'absolute';
-  a.style.left = ev.pageX - a.offsetWidth / 2 + 'px';
-  a.style.top = ev.pageY - a.offsetHeight / 2 + 'px';
+  myFreezer.style.position = 'absolute';
+  myFreezer.style.left = ev.pageX - myFreezer.offsetWidth / 2 + 'px';
+  myFreezer.style.top = ev.pageY - myFreezer.offsetHeight / 2 + 'px';
 
 }
 
 // myOtherParagraph.addEventListener('dragstart', dragstart_handler);
-a.addEventListener('dragstart', dragstart_handler);
+myFreezer.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
 
 myFridge.addEventListener('dragover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);
