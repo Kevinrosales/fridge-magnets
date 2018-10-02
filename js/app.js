@@ -44,6 +44,9 @@ function createMagnets() {
     // Assign the alphabetMagnets[i] to the magnetName property
     // Use rando to assign values to positionX and positionY
     new Magnet(alphabetMagnets[i], rando(50, 450), rando(10, 450));
+
+    addElement('p',alphabetMagnets[i],freezerArea);
+    // console.log(alphabetMagnets[i].magnetName);
   }
 
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
