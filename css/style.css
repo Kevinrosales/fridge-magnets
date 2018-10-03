@@ -8,7 +8,6 @@ body, html {
 
 body {
     background-image: url("../img/fridge.png");
-    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -43,6 +42,13 @@ p {
 }
 
 h1{
-    font-family: 'Josefin Sans', sans-serif;
+    /* font-family: 'Josefin Sans', sans-serif; */
     color: blue;
+    /* border-style: solid; */
+    /* border-color: black; */
+    display: inline;
+    border: 2px solid black;
+    position: fixed;
+    top: 3em;
+    right: 18em;
 }
