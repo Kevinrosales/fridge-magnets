@@ -52,11 +52,11 @@ function createMagnets() {
     tag.addEventListener('dragstart', dragstart_handler);
   }
 
-  console.log(`Magnets Created: ${Magnet.allMagnets}`);
+  // console.log(`Magnets Created: ${Magnet.allMagnets}`);
 }
 
 function addElement(element, content, parent){
-  console.log('in add element function');
+  // console.log('in add element function');
   var newElement = document.createElement(element);
   var newContent = document.createTextNode(content);
   var newId = document.createAttribute('id');
@@ -80,6 +80,16 @@ function rando(min, max) {
   return randomNumber;
 }
 
+function setLocalStorage(magnet){
+  console.log(`in local storage function ${magnet}`);
+  var item = magnet;
+  localStorage.setItem("magnet", JSON.stringify(item));
+  
+  //take the object being passed and assign it to a variable
+  //stringify that variable
+  //set to local storage
+}
+
 function grabMagnet(ev,data){
   var pId = data;
   for(var i = 0; i < Magnet.allMagnets.length; i++){
@@ -87,15 +97,14 @@ function grabMagnet(ev,data){
     if(Magnet.allMagnets[i].magnetName === pId){
       Magnet.allMagnets[i].positionX = ev.pageX;
       Magnet.allMagnets[i].positionY = ev.pageY;
-      console.log(ev.pageX + " "+ ev.pageY);
-      console.log(Magnet.allMagnets[i].positionX + " " + Magnet.allMagnets[i].positionY);
+      setLocalStorage(Magnet.allMagnets[i]);
       break;
     }
+  
   }
-
-  //assign the position of that object X and Y properties to to ev.pageX and ev.pageY.
-console.log(pId);
+  
 }
+
 
 
 
@@ -123,8 +132,8 @@ function drop_handler(ev) {
   
   
   //set to local storage.
-  console.log(data);
-  console.log(ev);
+  // console.log(data);
+  // console.log(ev);
   
 }
 
