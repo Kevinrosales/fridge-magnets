@@ -22,7 +22,7 @@ div:first-of-type {
     height: 25em;
     margin-bottom: 3%;
     margin-top: 3%;
-    width: 40em;
+    width: 35em;
     /* z-index: -100; */
 }
 
@@ -32,7 +32,7 @@ div:last-of-type {
     margin-right: auto;
     display: block;
     height: 40em;
-    width: 40em;
+    width: 35em;
     /* z-index: -100; */
 }
 
