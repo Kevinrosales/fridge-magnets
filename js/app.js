@@ -45,10 +45,8 @@ function createMagnets() {
     var y = rando(30, 400);
 
     new Magnet(alphabetMagnets[i], x, y);
-  
-    var tag = addElement('p', alphabetMagnets[i], myFreezer);
 
-    // console.log(alphabetMagnets[i].magnetName);
+    var tag = addElement('p', alphabetMagnets[i], myFreezer);
 
     tag.setAttribute('style', `position: absolute; left: ${x}px; top: ${y}px;`);
     tag.addEventListener('dragstart', dragstart_handler);
@@ -85,18 +83,18 @@ function rando(min, max) {
 
 
 function dragstart_handler(ev) {
-  ev.dataTransfer.setData("text/plain", ev.target.id);
-  ev.dropEffect = "move";
+  ev.dataTransfer.setData('text/plain', ev.target.id);
+  ev.dropEffect = 'move';
 }
 
 function dragover_handler(ev) {
   ev.preventDefault();
-  ev.dataTransfer.dropEffect = "move";
+  ev.dataTransfer.dropEffect = 'move';
 }
 
 function drop_handler(ev) {
   ev.preventDefault();
-  var data = ev.dataTransfer.getData("text/plain");
+  var data = ev.dataTransfer.getData('text/plain');
   var selected = document.getElementById(data);
   ev.target.appendChild(document.getElementById(data));
   selected.style.position = 'absolute';
