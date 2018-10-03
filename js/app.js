@@ -95,10 +95,13 @@ function drop_handler(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text/plain");
   ev.target.appendChild(document.getElementById(data));
-  tag.style.position = 'absolute';
-  tag.style.left = ev.pageX - tag.offsetWidth / 2 + 'px';
-  tag.style.top = ev.pageY - tag.offsetHeight / 2 + 'px';
+  var selectedel = document.getElementById(data); 
+  selectedel.style.position = 'absolute';
+  selectedel.style.left = ev.pageX - selectedel.offsetWidth / 2 + 'px';
+  selectedel.style.top = ev.pageY - selectedel.offsetHeight / 2 + 'px';
 
+  console.log(data);
+  console.log(tag.id);
 }
 
  
