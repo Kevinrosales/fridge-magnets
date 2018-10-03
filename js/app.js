@@ -1,9 +1,10 @@
 'use strict';
 
 var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
-var magnetArea = document.getElementById('magnets');
+//var magnetArea = document.getElementById('magnets');
 var myFreezer = document.getElementById('freezer');
-// var myFridge = document.getElementById('fridge');
+var myFridge = document.getElementById('fridge');
+var tag;
 
 
 function Magnet(magnet, x, y) {
@@ -44,10 +45,10 @@ function createMagnets() {
     var x = rando(50, 450);
     var y = rando(10, 450);
     new Magnet(alphabetMagnets[i], x, y);
-    var tag = addElement('p', alphabetMagnets[i], myFreezer);
+    tag = addElement('p', alphabetMagnets[i], myFreezer);
    // console.log(alphabetMagnets[i].magnetName);
    // tag.setAttribute('style', `left: ${x}px; top: ${y}px;`);
-  tag.addEventListener('dragstart', dragstart_handler);
+    tag.addEventListener('dragstart', dragstart_handler);
   }
 
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
@@ -94,9 +95,9 @@ function drop_handler(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text/plain");
   ev.target.appendChild(document.getElementById(data));
-  myFreezer.style.position = 'absolute';
-  myFreezer.style.left = ev.pageX - myFreezer.offsetWidth / 2 + 'px';
-  myFreezer.style.top = ev.pageY - myFreezer.offsetHeight / 2 + 'px';
+  tag.style.position = 'absolute';
+  tag.style.left = ev.pageX - tag.offsetWidth / 2 + 'px';
+  tag.style.top = ev.pageY - tag.offsetHeight / 2 + 'px';
 
 }
 
