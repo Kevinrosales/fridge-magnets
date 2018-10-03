@@ -23,10 +23,10 @@ function initialize() {
 
 function checkLocalStorage() {
   console.log('In local storage');
-  var localMagnets = localStorage.getItem('magnets');
+  var localMagnets = localStorage.getItem('magnet');
   console.log(`localMagnets = ${localMagnets}`);
   var magnets = JSON.parse(localMagnets);
-  console.log(`magnets = ${magnets}`);
+  console.log(`magnet = ${magnets}`);
 
   if (magnets && magnets.length) {
     console.log('Found it in storage');
@@ -82,8 +82,7 @@ function rando(min, max) {
 
 function setLocalStorage(magnet){
   console.log(`in local storage function ${magnet}`);
-  var item = magnet;
-  localStorage.setItem("magnet", JSON.stringify(item));
+  localStorage.setItem('magnet', JSON.stringify(Magnet.allMagnets));
   
   //take the object being passed and assign it to a variable
   //stringify that variable
