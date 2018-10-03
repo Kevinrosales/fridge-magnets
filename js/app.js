@@ -80,6 +80,23 @@ function rando(min, max) {
   return randomNumber;
 }
 
+function grabMagnet(ev,data){
+  var pId = data;
+  for(var i = 0; i < Magnet.allMagnets.length; i++){
+    
+    if(Magnet.allMagnets[i].magnetName === pId){
+      Magnet.allMagnets[i].positionX = ev.pageX;
+      Magnet.allMagnets[i].positionY = ev.pageY;
+      console.log(ev.pageX + " "+ ev.pageY);
+      console.log(Magnet.allMagnets[i].positionX + " " + Magnet.allMagnets[i].positionY);
+      break;
+    }
+  }
+
+  //assign the position of that object X and Y properties to to ev.pageX and ev.pageY.
+console.log(pId);
+}
+
 
 
 function dragstart_handler(ev) {
@@ -100,6 +117,15 @@ function drop_handler(ev) {
   selected.style.position = 'absolute';
   selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
   selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
+
+  
+  grabMagnet(ev,data);
+  
+  
+  //set to local storage.
+  console.log(data);
+  console.log(ev);
+  
 }
 
 myFridge.addEventListener('dragover', dragover_handler);
