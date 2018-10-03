@@ -54,7 +54,7 @@ function reuseMagnets()
 
 function createMagnets() {
   console.log('In createMagnets()');
-  for (var i = 0; i < alphabetMagnets.length-2; i++) {
+  for (var i = 0; i < alphabetMagnets.length; i++) {
     console.log('In for loop');
     var x = rando(375, 875);
     var y = rando(30, 400);
@@ -67,8 +67,6 @@ function createMagnets() {
     tag.addEventListener('dragstart', dragstart_handler);
 
   }
-
-  // console.log(`Magnets Created: ${Magnet.allMagnets}`);
 }
 
 function addElement(element, content, parent){
@@ -99,10 +97,6 @@ function rando(min, max) {
 function setLocalStorage(magnet){
   console.log(`in local storage function ${magnet}`);
   localStorage.setItem('magnet', JSON.stringify(Magnet.allMagnets));
-  
-  //take the object being passed and assign it to a variable
-  //stringify that variable
-  //set to local storage
 }
 
 function grabMagnet(ev,data){
