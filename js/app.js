@@ -4,6 +4,8 @@ var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','
 //var magnetArea = document.getElementById('magnets');
 var myFreezer = document.getElementById('freezer');
 var myFridge = document.getElementById('fridge');
+var colors = ['#FC0A08', '#7F00C9', '#196CFC', '#FD761C', '#5FFC3C'];
+var randomColor;
 
 
 function Magnet(magnet, x, y) {
@@ -43,25 +45,27 @@ function reuseMagnets()
   for (var i = 0; i < Magnet.allMagnets.length; i++)
   {
     var tag = addElement('p', Magnet.allMagnets[i].magnetName, myFreezer);
+    randomColor = Math.floor(Math.random() * 5);
 
-    tag.setAttribute('style', `position: absolute; left: ${Magnet.allMagnets[i].positionX}px; top: ${Magnet.allMagnets[i].positionY}px;`);
+    tag.setAttribute('style', `position: absolute; left: ${Magnet.allMagnets[i].positionX}px; top: ${Magnet.allMagnets[i].positionY}px; color: ${colors[randomColor]}`);
     tag.addEventListener('dragstart', dragstart_handler);
   }
 }
 
 function createMagnets() {
   console.log('In createMagnets()');
-  for (var i = 0; i < alphabetMagnets.length; i++) {
+  for (var i = 0; i < alphabetMagnets.length-2; i++) {
     console.log('In for loop');
     var x = rando(375, 875);
     var y = rando(30, 400);
-
+    randomColor = Math.floor(Math.random() * 5);
+    
     new Magnet(alphabetMagnets[i], x, y);
 
     var tag = addElement('p', alphabetMagnets[i], myFreezer);
-
-    tag.setAttribute('style', `position: absolute; left: ${x}px; top: ${y}px;`);
+    tag.setAttribute('style', `position: absolute; left: ${x}px; top: ${y}px; color: ${colors[randomColor]};`);
     tag.addEventListener('dragstart', dragstart_handler);
+
   }
 
   // console.log(`Magnets Created: ${Magnet.allMagnets}`);
