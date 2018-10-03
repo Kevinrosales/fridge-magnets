@@ -1,9 +1,9 @@
 'use strict';
 
 var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','H','h','I','i','J','j','K','k','L','l','M','m','N','n','O','o','P','p','Q','q','R','r','S','s','T','t','U','u','V','v','W','w','X','x','Y','y','Z','z'];
-var magnetArea = document.getElementById('magnets');
-// var myFreezer = document.getElementById('freezer');
-// var myFridge = document.getElementById('fridge');
+//var magnetArea = document.getElementById('magnets');
+var myFreezer = document.getElementById('freezer');
+var myFridge = document.getElementById('fridge');
 
 
 function Magnet(magnet, x, y) {
@@ -41,15 +41,15 @@ function createMagnets() {
   console.log('In createMagnets()');
   for (var i = 0; i < alphabetMagnets.length; i++) {
     console.log('In for loop');
-    var x = rando(50, 450);
-    var y = rando(10, 450);
+    var x = rando(375, 875);
+    var y = rando(30, 400);
 
     new Magnet(alphabetMagnets[i], x, y);
-  
-    var tag = addElement('p', alphabetMagnets[i], magnetArea);
 
-    // console.log(alphabetMagnets[i].magnetName);
-    tag.setAttribute('style', `left: ${x}px; top: ${y}px;`);
+    var tag = addElement('p', alphabetMagnets[i], myFreezer);
+
+    tag.setAttribute('style', `position: absolute; left: ${x}px; top: ${y}px;`);
+    tag.addEventListener('dragstart', dragstart_handler);
   }
 
   console.log(`Magnets Created: ${Magnet.allMagnets}`);
@@ -82,33 +82,30 @@ function rando(min, max) {
 
 
 
-// function dragstart_handler(ev) {
-//   ev.dataTransfer.setData("text/plain", ev.target.id);
-//   ev.dropEffect = "move";
-// }
+function dragstart_handler(ev) {
+  ev.dataTransfer.setData('text/plain', ev.target.id);
+  ev.dropEffect = 'move';
+}
 
-// function dragover_handler(ev) {
-//   ev.preventDefault();
-//   ev.dataTransfer.dropEffect = "move";
-// }
+function dragover_handler(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = 'move';
+}
 
-// function drop_handler(ev) {
-//   ev.preventDefault();
-//   var data = ev.dataTransfer.getData("text/plain");
-//   ev.target.appendChild(document.getElementById(data));
-//   myFreezer.style.position = 'absolute';
-//   myFreezer.style.left = ev.pageX - myFreezer.offsetWidth / 2 + 'px';
-//   myFreezer.style.top = ev.pageY - myFreezer.offsetHeight / 2 + 'px';
+function drop_handler(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData('text/plain');
+  var selected = document.getElementById(data);
+  ev.target.appendChild(document.getElementById(data));
+  selected.style.position = 'absolute';
+  selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
+  selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
+}
 
-// }
+myFridge.addEventListener('dragover', dragover_handler);
+myFridge.addEventListener('drop', drop_handler);
 
-// // myOtherParagraph.addEventListener('dragstart', dragstart_handler);
-// magnetArea.addEventListener('dragstart', dragstart_handler);  //instead of 'a', use the section "freezer"?
-
-// myFridge.addEventListener('dragover', dragover_handler);
-// myFridge.addEventListener('drop', drop_handler);
-
-// myFreezer.addEventListener('dragover', dragover_handler);
-// myFreezer.addEventListener('drop', drop_handler);
+myFreezer.addEventListener('dragover', dragover_handler);
+myFreezer.addEventListener('drop', drop_handler);
 
 initialize();
