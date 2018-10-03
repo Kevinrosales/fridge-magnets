@@ -42,7 +42,7 @@ function reuseMagnets()
 {
   for (var i = 0; i < Magnet.allMagnets.length; i++)
   {
-    var tag = addElement('p', Magnet.allMagnets[i], myFreezer);
+    var tag = addElement('p', Magnet.allMagnets[i].magnetName, myFreezer);
 
     tag.setAttribute('style', `position: absolute; left: ${Magnet.allMagnets[i].positionX}px; top: ${Magnet.allMagnets[i].positionY}px;`);
     tag.addEventListener('dragstart', dragstart_handler);
