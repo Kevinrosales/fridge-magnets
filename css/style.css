@@ -13,7 +13,7 @@ body {
     height: 100%;
 }
 
-div:first-of-type {
+/* div:first-of-type {
     background: rgba(89, 89, 187, 0.7);
     margin-left: auto;
     margin-right: auto;
@@ -22,7 +22,6 @@ div:first-of-type {
     margin-bottom: 3%;
     margin-top: 3%;
     width: 35em;
-    /* z-index: -100; */
 }
 
 div:last-of-type {
@@ -32,8 +31,7 @@ div:last-of-type {
     display: block;
     height: 40em;
     width: 35em;
-    /* z-index: -100; */
-}
+} */
 
 p {
     display: inline;
