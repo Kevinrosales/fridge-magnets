@@ -23,17 +23,29 @@ function initialize() {
 
 function checkLocalStorage() {
   console.log('In local storage');
-  var localMagnets = localStorage.getItem('magnets');
+  var localMagnets = localStorage.getItem('magnet');
   console.log(`localMagnets = ${localMagnets}`);
   var magnets = JSON.parse(localMagnets);
-  console.log(`magnets = ${magnets}`);
+  console.log(`magnet = ${magnets}`);
 
   if (magnets && magnets.length) {
     console.log('Found it in storage');
     Magnet.allMagnets = magnets;
+    reuseMagnets();
   }
   else {
     createMagnets();
+  }
+}
+
+function reuseMagnets()
+{
+  for (var i = 0; i < Magnet.allMagnets.length; i++)
+  {
+    var tag = addElement('p', Magnet.allMagnets[i].magnetName, myFreezer);
+
+    tag.setAttribute('style', `position: absolute; left: ${Magnet.allMagnets[i].positionX}px; top: ${Magnet.allMagnets[i].positionY}px;`);
+    tag.addEventListener('dragstart', dragstart_handler);
   }
 }
 
@@ -52,11 +64,11 @@ function createMagnets() {
     tag.addEventListener('dragstart', dragstart_handler);
   }
 
-  console.log(`Magnets Created: ${Magnet.allMagnets}`);
+  // console.log(`Magnets Created: ${Magnet.allMagnets}`);
 }
 
 function addElement(element, content, parent){
-  console.log('in add element function');
+  // console.log('in add element function');
   var newElement = document.createElement(element);
   var newContent = document.createTextNode(content);
   var newId = document.createAttribute('id');
@@ -80,6 +92,31 @@ function rando(min, max) {
   return randomNumber;
 }
 
+function setLocalStorage(magnet){
+  console.log(`in local storage function ${magnet}`);
+  localStorage.setItem('magnet', JSON.stringify(Magnet.allMagnets));
+  
+  //take the object being passed and assign it to a variable
+  //stringify that variable
+  //set to local storage
+}
+
+function grabMagnet(ev,data){
+  var pId = data;
+  for(var i = 0; i < Magnet.allMagnets.length; i++){
+    
+    if(Magnet.allMagnets[i].magnetName === pId){
+      Magnet.allMagnets[i].positionX = ev.pageX;
+      Magnet.allMagnets[i].positionY = ev.pageY;
+      setLocalStorage(Magnet.allMagnets[i]);
+      break;
+    }
+  
+  }
+  
+}
+
+
 
 
 function dragstart_handler(ev) {
@@ -100,6 +137,15 @@ function drop_handler(ev) {
   selected.style.position = 'absolute';
   selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
   selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
+
+  
+  grabMagnet(ev,data);
+  
+  
+  //set to local storage.
+  // console.log(data);
+  // console.log(ev);
+  
 }
 
 myFridge.addEventListener('dragover', dragover_handler);
