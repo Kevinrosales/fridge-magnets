@@ -161,7 +161,7 @@ function changeBackground() {
 }
 
 
-myFridge.addEventListener('dr agover', dragover_handler);
+myFridge.addEventListener('dragover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);
 
 myFreezer.addEventListener('dragover', dragover_handler);
