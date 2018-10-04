@@ -6,41 +6,57 @@ body, html {
     height: 100%;
 }
 
-/* body {
-    background-image: url("../img/fridge.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-} */
-
-div:first-of-type {
-    /* background: rgba(89, 89, 187, 0.7); */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 25em;
-    margin-bottom: 3%;
-    margin-top: 3%;
-    width: 35em;
-    /* z-index: -100; */
+.wrapper {
+    height: 0;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    position: relative;
 }
 
-div:last-of-type {
-    /* background: rgba(187, 107, 107, 0.7); */
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    height: 40em;
-    width: 35em;
-    /* z-index: -100; */
+#freezer {
+    background: rgba(89, 89, 187, 0.7);
+    height: 58vw;
+    left: 10%;
+    position: absolute;
+    right: 10%;
+    top: 20%;
+    max-width: 100%;
+    z-index: 1;
+}
+
+#fridge {
+    background: rgba(187, 107, 107, 0.7);
+    height: 110vw;
+    left: 10%;
+    position: absolute;
+    right: 10%;
+    top: 127%;
+    max-width: 100%;
+    z-index: 1;
+}
+
+figure {
+    height: 0;
+    margin: 0 auto;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+img {
+    height: auto;
+    left: 0;
+    padding: 10%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
 }
 
 p {
-    display: inline;
-    color: red;
-    font-size: 2.75em;
+    font-size: 3rem;
     font-family: 'Londrina Solid', cursive;
     text-shadow: 2px -2px black;
+    z-index: 1000;
 }
 
 label {
@@ -48,3 +64,9 @@ label {
     font-size: 1.75em;
     text-shadow: 2px -1px white;
 }
+
+
+/******* Charles Styles *******/
+
+
+
