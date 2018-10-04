@@ -4,9 +4,16 @@ var alphabetMagnets = ['A','a','B','b','C','c','D','d','E','e','F','f','G','g','
 //var magnetArea = document.getElementById('magnets');
 var myFreezer = document.getElementById('freezer');
 var myFridge = document.getElementById('fridge');
+var button = document.getElementById('btn');
+
 var colors = ['#FC0A08', '#7F00C9', '#196CFC', '#FD761C', '#5FFC3C'];
 var randomColor;
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dcb438e172f2ec1ed1e5d5f156f893ae4c6b68ae
 function Magnet(magnet, x, y) {
   this.magnetName = magnet;
   this.positionX = x;
@@ -50,6 +57,8 @@ function reuseMagnets()
     tag.addEventListener('dragstart', dragstart_handler);
   }
 }
+
+
 
 function createMagnets() {
   console.log('In createMagnets()');
@@ -113,9 +122,6 @@ function grabMagnet(ev,data){
 
 }
 
-
-
-
 function dragstart_handler(ev) {
   ev.dataTransfer.setData('text/plain', ev.target.id);
   ev.dropEffect = 'move';
@@ -135,6 +141,7 @@ function drop_handler(ev) {
   selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
   selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
 
+<<<<<<< HEAD
 
   grabMagnet(ev,data);
 
@@ -142,6 +149,16 @@ function drop_handler(ev) {
   //set to local storage.
   // console.log(data);
   // console.log(ev);
+=======
+  button.onclick = function(){
+    localStorage.clear();
+    document.location.reload(true);
+  }
+
+
+  grabMagnet(ev,data);
+  
+>>>>>>> dcb438e172f2ec1ed1e5d5f156f893ae4c6b68ae
 }
 
 function changeBackground() {
