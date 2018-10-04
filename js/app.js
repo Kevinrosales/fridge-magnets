@@ -155,3 +155,5 @@ myFreezer.addEventListener('dragover', dragover_handler);
 myFreezer.addEventListener('drop', drop_handler);
 
 initialize();
+
+//asdkjflkaj
