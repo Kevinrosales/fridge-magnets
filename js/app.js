@@ -7,7 +7,6 @@ var myFridge = document.getElementById('fridge');
 var colors = ['#FC0A08', '#7F00C9', '#196CFC', '#FD761C', '#5FFC3C'];
 var randomColor;
 
-
 function Magnet(magnet, x, y) {
   this.magnetName = magnet;
   this.positionX = x;
@@ -143,13 +142,22 @@ function drop_handler(ev) {
   //set to local storage.
   // console.log(data);
   // console.log(ev);
-  
 }
+
+function changeBackground() {
+  var x = document.getElementById('background').value;
+  var body = document.getElementById('body');
+  document.body.style.backgroundImage="url("+x+")";
+  console.log(x);
+}
+
 
 myFridge.addEventListener('dragover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);
 
 myFreezer.addEventListener('dragover', dragover_handler);
 myFreezer.addEventListener('drop', drop_handler);
+
+
 
 initialize();
