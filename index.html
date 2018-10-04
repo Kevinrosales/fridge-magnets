@@ -1,39 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Mag.Net</title>
-        <link rel="stylesheet" href="./css/reset.css">
-        <link href="https://fonts.googleapis.com/css?family=Londrina+Outline|Londrina+Solid" rel="stylesheet">
-        <link rel="stylesheet" href="./css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {margin:0;}
+
+        .topnav {
+        overflow: hidden;
+        background-color: rgb(165, 161, 161);
+        }
+
+        .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        border-bottom: 3px solid transparent;
+        }
+
+        .topnav a:hover {
+        border-bottom: 3px solid red;
+        }
+
+        .topnav a.active {
+        border-bottom: 3px solid red;
+        }
+    </style>
     </head>
+<body>
 
-    <body>
-        <header>
-            <!-- <img src=img/fridge.png id="fridge" draggable="false"> -->
-        </header>
+<div class="topnav">
+  <a class="active" href="index.html">Home</a>
+  <a href="home.html">Get Magnetized</a>
+  <a href="aboutus.html">About us</a>
+</div>
 
-        <main>
-            <button id="btn">Reset</button>
-            <div id = "freezer"></div>
-            <div id = "fridge"></div>
+<div style="padding-left:16px">
+  <h2>Welcome To Mag.Net</h2>
+  <p>where dreams become reality</p>
+</div>
 
-            <label>Choose a Background:</label>        
-                <select id="background" onchange="changeBackground() ">
-                    <option value="">--Please select a background!--</option>
-                    <option value="../img/desert.jpg">Desert</option>
-                    <option value="../img/starfish.jpeg">Starfish</option>
-                    <option value="../img/barbed.jpg">Barbed Fence</option>
-                    <option value="../img/pier.jpeg">Pier</option>
-                    <option value="../img/cat.jpeg">Cat</option>
-                </select>
-
-        </main>
-
-        <footer>
-
-        </footer>
-
-        <!-- <script src='js/dnd.js'></script> -->
-        <script src="js/app.js"></script>
-    </body>
+</body>
 </html>

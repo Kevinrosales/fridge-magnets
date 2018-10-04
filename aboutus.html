@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: "Lato", sans-serif;}
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+#Charles {background-color:rgb(179, 116, 0);}
+#Ray {background-color:blue;}
+#Caity {background-color:blue;}
+#Kevin {background-color:purple;}
+</style>
+</head>
+<body>
+
+<div id="Charles" class="tabcontent">
+  <h1>Charels</h1>
+  <p>Charles is Great.</p>
+</div>
+
+<div id="Ray" class="tabcontent">
+  <h1>Ray</h1>
+  <p>Ray is Great.</p> 
+</div>
+
+<div id="Caity" class="tabcontent">
+  <h1>Caity</h1>
+  <p>Caity is Great.</p>
+</div>
+
+<div id="Kevin" class="tabcontent">
+  <h1>Kevin</h1>
+  <p>Kevin is Okayyyy.</p>
+</div>
+
+<button class="tablink" onclick="openCity('Charles', this, 'rgb(179, 116, 0)')" id="defaultOpen">Charels</button>
+<button class="tablink" onclick="openCity('Ray', this, 'blue')">Ray</button>
+<button class="tablink" onclick="openCity('Caity', this, 'blue')">Caity</button>
+<button class="tablink" onclick="openCity('Kevin', this, 'purple')">Kevin</button>
+
+<script>
+function openCity(cityName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(cityName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+document.getElementById("defaultOpen").click();
+</script>
+     
+</body>
+</html> 
