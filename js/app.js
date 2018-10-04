@@ -58,7 +58,7 @@ function createMagnets() {
     var x = rando(375, 875);
     var y = rando(30, 400);
     randomColor = Math.floor(Math.random() * 5);
-    
+
     new Magnet(alphabetMagnets[i], x, y);
 
     var tag = addElement('p', alphabetMagnets[i], myFreezer);
@@ -101,16 +101,16 @@ function setLocalStorage(magnet){
 function grabMagnet(ev,data){
   var pId = data;
   for(var i = 0; i < Magnet.allMagnets.length; i++){
-    
+
     if(Magnet.allMagnets[i].magnetName === pId){
       Magnet.allMagnets[i].positionX = ev.pageX;
       Magnet.allMagnets[i].positionY = ev.pageY;
       setLocalStorage(Magnet.allMagnets[i]);
       break;
     }
-  
+
   }
-  
+
 }
 
 
@@ -135,10 +135,10 @@ function drop_handler(ev) {
   selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
   selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
 
-  
+
   grabMagnet(ev,data);
-  
-  
+
+
   //set to local storage.
   // console.log(data);
   // console.log(ev);
@@ -146,9 +146,7 @@ function drop_handler(ev) {
 
 function changeBackground() {
   var x = document.getElementById('background').value;
-  var body = document.getElementById('body');
-  document.body.style.backgroundImage="url("+x+")";
-  console.log(x);
+  document.body.style.backgroundImage='url(' + x + ')';
 }
 
 
