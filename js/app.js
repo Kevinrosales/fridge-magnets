@@ -156,4 +156,3 @@ myFreezer.addEventListener('drop', drop_handler);
 
 initialize();
 
-//asdkjflkaj
