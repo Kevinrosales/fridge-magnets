@@ -64,7 +64,7 @@ function createMagnets() {
     var x = rando(375, 875);
     var y = rando(30, 400);
     randomColor = Math.floor(Math.random() * 5);
-    
+
     new Magnet(alphabetMagnets[i], x, y);
 
     var tag = addElement('p', alphabetMagnets[i], myFreezer);
@@ -107,16 +107,16 @@ function setLocalStorage(magnet){
 function grabMagnet(ev,data){
   var pId = data;
   for(var i = 0; i < Magnet.allMagnets.length; i++){
-    
+
     if(Magnet.allMagnets[i].magnetName === pId){
       Magnet.allMagnets[i].positionX = ev.pageX;
       Magnet.allMagnets[i].positionY = ev.pageY;
       setLocalStorage(Magnet.allMagnets[i]);
       break;
     }
-  
+
   }
-  
+
 }
 
 function dragstart_handler(ev) {
@@ -138,6 +138,13 @@ function drop_handler(ev) {
   selected.style.left = ev.pageX - selected.offsetWidth / 2 + 'px';
   selected.style.top = ev.pageY - selected.offsetHeight / 2 + 'px';
 
+
+  grabMagnet(ev,data);
+
+
+  //set to local storage.
+  // console.log(data);
+  // console.log(ev);
   button.onclick = function(){
     localStorage.clear();
     document.location.reload(true);
@@ -145,14 +152,22 @@ function drop_handler(ev) {
 
 
   grabMagnet(ev,data);
-  
+
 }
 
-myFridge.addEventListener('dragover', dragover_handler);
+function changeBackground() {
+  var x = document.getElementById('background').value;
+  document.body.style.backgroundImage='url(' + x + ')';
+}
+
+
+myFridge.addEventListener('dr agover', dragover_handler);
 myFridge.addEventListener('drop', drop_handler);
 
 myFreezer.addEventListener('dragover', dragover_handler);
 myFreezer.addEventListener('drop', drop_handler);
+
+
 
 initialize();
 

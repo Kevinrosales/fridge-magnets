@@ -6,13 +6,12 @@ body, html {
     height: 100%;
 }
 
-body {
+/* body {
     background-image: url("../img/fridge.png");
-    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-}
+} */
 
 div:first-of-type {
     /* background: rgba(89, 89, 187, 0.7); */
@@ -42,4 +41,10 @@ p {
     font-size: 2.75em;
     font-family: 'Londrina Solid', cursive;
     text-shadow: 2px -2px black;
+}
+
+label {
+    color: black;
+    font-size: 1.75em;
+    text-shadow: 2px -1px white;
 }
