@@ -61,8 +61,8 @@ function createMagnets() {
   console.log('In createMagnets()');
   for (var i = 0; i < alphabetMagnets.length; i++) {
     console.log('In for loop');
-    var x = rando(375, 875);
-    var y = rando(30, 400);
+    var x = rando(375, 775);
+    var y = rando(30, 375);
     randomColor = Math.floor(Math.random() * 5);
 
     new Magnet(alphabetMagnets[i], x, y);
@@ -148,7 +148,7 @@ function drop_handler(ev) {
   button.onclick = function(){
     localStorage.clear();
     document.location.reload(true);
-  }
+  };
 
 
   grabMagnet(ev,data);
