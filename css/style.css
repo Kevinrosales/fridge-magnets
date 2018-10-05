@@ -47,4 +47,5 @@ label {
     color: black;
     font-size: 1.75em;
     text-shadow: 2px -1px white;
+    float: top;
 }
