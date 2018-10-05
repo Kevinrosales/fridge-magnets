@@ -17,7 +17,7 @@ body {
     background-color: black; 
     border: none;
     color: white;
-    margin: 1em 3em;
+    margin: 1em 4.25em;
     padding: 20px;
     text-align: center;
     text-decoration: none;
@@ -57,8 +57,14 @@ p {
     text-shadow: 2px -2px black;
 }
 
-label {
-    color: black;
-    font-size: 1.75em;
-    text-shadow: 2px -1px white;
+
+#background {
+    position: absolute;
+    top: 8em;
+    left: 1em;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #000;
+    color: white;
 }
