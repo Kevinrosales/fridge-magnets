@@ -45,9 +45,11 @@ p {
     text-shadow: 2px -2px black;
 }
 
-label {
+main {
     color: black;
     font-size: 1.75em;
     text-shadow: 2px -1px white;
-    float: top;
+    position: relative;
+    top: 0em;
+    left: 0em;
 }
